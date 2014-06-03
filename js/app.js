@@ -1,7 +1,7 @@
 
 	
 $(document).ready(function() {
-	$('.additem').click(function () {
+	function addItem() {
 		var itemdesc = $('.input').find('input').val();
 		var listelement = "<div class='item'> \
 					<div class='checkitem'> \
@@ -16,13 +16,20 @@ $(document).ready(function() {
 				</div>";
 		$('.items').prepend(listelement);
 		$('.input').find('input').val('');
+	}
+	$('.additem').click(function () {
+		addItem();
 	});
-	$('.checkitem').click(function () {
-		alert('Checked!');
+	$('.input').find('input').keydown(function (event) {
+		if(event.which == 13) {
+			addItem();
+		}
+	});
+	$('.items').on('click', '.checkitem', function () {
 		$(this).toggleClass('checked');
 		$(this).closest('.item').find('.itemtext p').toggleClass('crossed-off');
-	});	
-	$('.delitem').click(function () {
+	})	
+	.on('click', '.delitem', function () {
 		$(this).closest('.item').remove();
 	});
 });
