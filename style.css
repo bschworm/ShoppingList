@@ -26,9 +26,23 @@
 .icon-close:before {
 	content: "\e600";
 }
+
+.icon-close:hover{
+	color:red;
+}
+
+.icon-close{
+	font-size: .80em;
+}
+
 .icon-checkmark:before {
 	content: "\e601";
 }
+
+.icon-checkmark:hover{
+	color:green;
+}
+
 .icon-minus:before {
 	content: "\e602";
 }
@@ -36,29 +50,44 @@
 	content: "\e603";
 }
 
+.icon-plus:hover{
+	color:blue;
+}
+
+.icon-plus:hover, .icon-checkmark:hover, .icon-close:hover{
+	font-weight: bold;
+}
+
 body{
 	background-color: black;
+	font-family: sans-serif;
 }
 
 .main{
 	margin:auto;
 	width:800px;
 	background-color: white;
-	padding-top: 10px;
+	padding:10px 0 10px 0;
+
 }
 
 .input{
 	position:relative;
-	margin:0 auto;
+	margin:5px auto 15px auto;
 	border: 1px solid black;
 	width:320px;
 	padding-left: 2px;
 }
 
-.item input{
+.input input{
 	border:none;
 	width:300px;
 	height:25px;
+	font-size: 16px;
+}
+
+.input input:focus{
+	outline: none;
 }
 
 .additem{
@@ -77,17 +106,34 @@ body{
 }
 
 .checkitem, .itemtext, .delitem{
-	display:inline-block;
-	padding-top: 4px;
-	padding-left: 2px;
-	padding-right: 2px;
+	position:absolute;
+	top:3px;
+}
+
+.checkitem{
+	top:5px;
+	left:2px;
 }
 
 .itemtext{
-	width:268px;
+	left:25px;
+	width:270px;
 	padding-top: 0;
+}
+
+.delitem{
+	left:304px;
 }
 
 .itemtext p{
 	margin:0;
+}
+
+.checked{
+	font-weight: bold;
+	color:green;
+}
+
+.crossed-off{
+	text-decoration: line-through;
 }
